@@ -1,130 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.queens_detail.activity.QueensDetailActivity">
+    tools:context=".view.queens_detail.activity.QueensDetailActivity"
+    style="@style/Theme.DragRace"
+    android:background="@color/green_1">
 
-    <ImageView
-        android:id="@+id/queens_detail_activity_image"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:src="@drawable/queen_image_1"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        />
+        android:layout_height="wrap_content">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black"
-        android:alpha="0.85"/>
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/queens_detail_activity_name"
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/abc_vector_test" />
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:src="@drawable/logo_vazado_rpdr"
+                android:adjustViewBounds="true"/>
 
-        android:padding="16dp"
+        </Toolbar>
 
-        android:text="Victoria 'Porkchop' Parker"
-        android:fontFamily="@font/syncopate"
-        android:textColor="@color/pink"
-        android:textSize="24sp"
+        <TextView
+            android:id="@+id/queens_detail_activity_name"
 
-        android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.1"/>
+            android:padding="16dp"
 
-    <Space
-        android:id="@+id/spacer"
+            android:text="Victoria 'Porkchop' Parker"
+            android:fontFamily="@font/syncopate"
+            android:textColor="@color/pink"
+            android:textSize="24sp"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
 
-        app:layout_constraintTop_toBottomOf="@id/queens_detail_activity_name"
-        app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            />
 
-        app:layout_constraintVertical_bias="0.4"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_queen_image"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            app:layout_constraintTop_toBottomOf="@id/queens_detail_activity_name"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="24dp">
 
-    <TextView
-        android:id="@+id/queens_detail_activity_id"
+            <ImageView
+                android:id="@+id/queens_detail_activity_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/queen_image_1" />
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-        android:layout_margin="16dp"
-        android:padding="8dp"
+        </androidx.cardview.widget.CardView>
 
-        tools:text="ID"
-        android:fontFamily="@font/syncopate"
-        android:textColor="@color/pink"
-        android:textSize="24sp"
+        <TextView
+            android:id="@+id/queens_detail_activity_id"
 
-        android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@id/spacer"
-        />
+            android:layout_margin="16dp"
+            android:padding="8dp"
 
-    <TextView
-        android:id="@+id/queens_detail_activity_congeniality"
+            tools:text="ID"
+            android:fontFamily="@font/syncopate"
+            android:textColor="@color/pink"
+            android:textSize="24sp"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            android:gravity="start"
 
-        android:layout_margin="16dp"
-        android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/cardview_queen_image"
+            />
 
-        tools:text="CONGENIALITY"
-        android:fontFamily="@font/syncopate"
-        android:textColor="@color/pink"
-        android:textSize="24sp"
+        <TextView
+            android:id="@+id/queens_detail_activity_congeniality"
 
-        android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@id/queens_detail_activity_id"
-        />
+            android:layout_margin="16dp"
+            android:padding="8dp"
 
-    <TextView
-        android:id="@+id/queens_detail_activity_quote"
+            tools:text="CONGENIALITY"
+            android:fontFamily="@font/syncopate"
+            android:textColor="@color/pink"
+            android:textSize="24sp"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            android:gravity="start"
 
-        android:layout_margin="16dp"
-        android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/queens_detail_activity_id"
+            />
 
-        tools:text="QUOTE"
-        android:fontFamily="@font/syncopate"
-        android:textColor="@color/pink"
-        android:textSize="24sp"
+        <TextView
+            android:id="@+id/queens_detail_activity_quote"
 
-        android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@id/queens_detail_activity_congeniality"
-        />
+            android:layout_margin="16dp"
+            android:padding="8dp"
 
-    <TextView
-        android:id="@+id/queens_detail_activity_winner"
+            tools:text="QUOTE"
+            android:fontFamily="@font/syncopate"
+            android:textColor="@color/pink"
+            android:textSize="24sp"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            android:gravity="start"
 
-        android:layout_margin="16dp"
-        android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/queens_detail_activity_congeniality"
+            />
 
-        tools:text="WINNER"
-        android:fontFamily="@font/syncopate"
-        android:textColor="@color/pink"
-        android:textSize="24sp"
+        <TextView
+            android:id="@+id/queens_detail_activity_winner"
 
-        android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@id/queens_detail_activity_quote"/>
+            android:layout_margin="16dp"
+            android:padding="8dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            tools:text="WINNER"
+            android:fontFamily="@font/syncopate"
+            android:textColor="@color/pink"
+            android:textSize="24sp"
+
+            android:gravity="start"
+
+            app:layout_constraintTop_toBottomOf="@id/queens_detail_activity_quote"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_winner_badge"
+
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+
+            android:layout_margin="16dp"
+
+            app:cardCornerRadius="24dp"
+            app:cardElevation="24dp"
+
+            app:layout_constraintTop_toBottomOf="@id/queens_detail_activity_winner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_winner_badge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Winner Badge"
+                    android:textSize="32sp"
+                    android:textColor="@color/grape_1"
+                    android:gravity="center_horizontal"
+
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="32dp"
+                    android:padding="16dp"
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_winner_animation"
+
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="4dp"
+
+                    android:layout_gravity="center_horizontal"
+
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+
+                    app:lottie_rawRes="@raw/award"
+                    />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_congeniality_badge"
+
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+
+            android:layout_margin="16dp"
+
+            app:cardCornerRadius="24dp"
+            app:cardElevation="24dp"
+
+            app:layout_constraintTop_toBottomOf="@id/cardview_winner_badge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_congeniality_badge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Congeniality Badge"
+                    android:textSize="32sp"
+                    android:textColor="@color/grape_1"
+                    android:gravity="center_horizontal"
+
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="32dp"
+                    android:padding="16dp"
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_congeniality_animation"
+
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="4dp"
+
+                    android:layout_gravity="center_horizontal"
+
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+
+                    app:lottie_rawRes="@raw/cat_in_box"
+                    />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_looser_badge"
+
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+
+            android:layout_margin="16dp"
+
+            app:cardCornerRadius="24dp"
+            app:cardElevation="24dp"
+
+            app:layout_constraintTop_toBottomOf="@id/cardview_congeniality_badge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_looser_badge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="There isn't any badges "
+                    android:textSize="32sp"
+                    android:textColor="@color/grape_1"
+                    android:gravity="center_horizontal"
+
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="32dp"
+                    android:padding="16dp"
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_looser_animation"
+
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="4dp"
+
+                    android:layout_gravity="center_horizontal"
+
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+
+                    app:lottie_rawRes="@raw/broken_heart"
+                    />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cardview_looser_badge"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
