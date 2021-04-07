@@ -2,14 +2,13 @@ package com.br.drag_race.view.queens.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.br.drag_race.R
 import com.br.drag_race.model.Queens
-import com.br.drag_race.test.mock.QueensMock
 import com.br.drag_race.view.queens.adapter.QueensAdapter
 import com.br.drag_race.viewmodel.QueensViewModel
 
@@ -27,15 +26,23 @@ class QueensActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         initView()
+        setStatusBarColor()
         setRecyclerView()
-//        requestQueensViewModel()
+        requestQueensViewModel()
     }
 
     private fun initView() = setContentView(R.layout.activity_queens)
 
+    private fun setStatusBarColor(){
+
+        val window = this.window
+        window.statusBarColor = ContextCompat.getColor(this, R.color.green_1)
+    }
+
     private fun setRecyclerView() {
 
-        recyclerView.adapter = QueensAdapter(QueensMock.list)
+//        recyclerView.adapter = QueensAdapter(QueensMock.list)
+        recyclerView.adapter = QueensAdapter(queensResponse, this)
 
         recyclerView.layoutManager = LinearLayoutManager(
             this,

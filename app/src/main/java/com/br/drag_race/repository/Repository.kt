@@ -14,6 +14,5 @@ class Repository {
     //Método que cria a conexão com todos os endpoints da API, que constam em
     // "network/Endpoint"
 
-    suspend fun getQueensService(): QueensResponse = serviceQueen
-        .getQueensResponse()
+    suspend fun getQueensService(): QueensResponse = serviceQueen.getQueensResponse()
 }

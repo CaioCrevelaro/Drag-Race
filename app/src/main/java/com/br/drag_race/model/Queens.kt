@@ -6,9 +6,8 @@ import com.google.gson.annotations.SerializedName
 data class Queens(
     @SerializedName("id")
     val id: Int,
-//    @SerializedName("image_url")
-//    val imageUrl: String,
-    val image: Int,
+    @SerializedName("image_url")
+    val imageUrl: String,
     @SerializedName("missCongeniality")
     val missCongeniality: Boolean,
     @SerializedName("name")
