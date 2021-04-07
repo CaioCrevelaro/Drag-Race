@@ -1,12 +1,14 @@
 package com.br.drag_race.view.queens.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.drag_race.R
 import com.br.drag_race.model.Queens
 import com.br.drag_race.view.queens.adapter.viewholder.QueensViewHolder
+import com.br.drag_race.view.queens_detail.activity.QueensDetailActivity
 import com.squareup.picasso.Picasso
 
 class QueensAdapter(
@@ -30,6 +32,8 @@ class QueensAdapter(
         return QueensViewHolder(view)
     }
 
+    override fun getItemCount(): Int = queensList.size
+
     override fun onBindViewHolder(
         holder: QueensViewHolder,
         position: Int
@@ -43,7 +47,35 @@ class QueensAdapter(
 //        val image = holder.queen_image
 //        image.setImageResource(queensList[position].image)
 
+        intentToQueensDetail(queen, holder)
     }
 
-    override fun getItemCount(): Int = queensList.size
+    private fun intentToQueensDetail(queen: Queens, holder: QueensViewHolder){
+
+        val card = holder.itemView
+        card.setOnClickListener {
+
+            val intent = Intent(it.context, QueensDetailActivity::class.java)
+
+            intent.putExtra("ID", queen.id.toString())
+            intent.putExtra("IMAGE", queen.imageUrl)
+            intent.putExtra("MISS_CONGENIALITY", queen.missCongeniality.toString())
+            intent.putExtra("NAME", queen.name)
+            intent.putExtra("QUOTE", queen.quote)
+            intent.putExtra("WINNER", queen.winner.toString())
+
+            it.context.startActivity(intent)
+        }
+    }
 }
+
+/**
+*
+* id: Int,
+* imageUrl: String,
+* missCongeniality: Boolean,
+* name: String,
+* quote: String,
+* winner: Boolean
+ *
+ */
